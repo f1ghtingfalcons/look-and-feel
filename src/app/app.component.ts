@@ -1,10 +1,23 @@
 import { Component } from '@angular/core';
 
+const PAGES: string[] = [
+  'BROWSE',
+  'SEARCH',
+  'ABOUT',
+  'CONTACT'
+];
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'look-and-feel';
+  pages: string[] = PAGES;
+  selectedPage = this.pages[0];
+  collapse = true;
+
+  onSelect( page: string): void {
+      this.selectedPage = page;
+  }
 }

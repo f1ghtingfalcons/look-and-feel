@@ -1,0 +1,14 @@
+<nav class="mat-typography navbar navbar-dark navbar-fixed-top">
+    <mat-toolbar style="position: relative">
+        <button mat-icon-button (click)="opened=!opened">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <a class="navbar-brand">LASP</a>
+        <div class="nav-items">
+            <span class="nav-item" *ngFor="let page of pages">
+                <a class="nav-link nav-button" [class.active]="selectedPage === page" (click)="onSelect(page)">{{page}}</a>
+            </span>
+        </div>
+        <mat-icon style="right: 2rem; position: absolute">search</mat-icon>
+    </mat-toolbar>
+</nav>

@@ -1,20 +1,84 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<header class="header">
+    <nav class="mat-typography navbar navbar-dark navbar-fixed-top">
+        <mat-toolbar style="position: relative">
+            <button mat-icon-button (click)="opened=!opened">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <a class="navbar-brand">LASP</a>
+            <div class="nav-items" *ngIf="!opened">
+                <span class="nav-item" *ngFor="let page of pages">
+                    <a class="nav-link nav-button" [class.active]="selectedPage === page" (click)="onSelect(page)">{{page}}</a>
+                </span>
+            </div>
+            <mat-icon style="right: 2rem; position: absolute">search</mat-icon>
+        </mat-toolbar>
+    </nav>
+</header>
 
+<mat-sidenav-container style="background-color: #fff">
+    <mat-sidenav mode="over" [opened]="opened">
+      <div fxLayout="column" style="width: 200px">
+        <button mat-raised-button *ngFor="let page of pages">{{page}}</button>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+        <div class="content" style="margin-top: 56px">
+          <section class="mat-typography" style="margin-top: 16px">
+            <p class="mat-display-3">Optional Page Title</p>
+          </section>
+          <div class="featured">
+              <img style="width: 100%; border-radius: 4px" src="assets/wrightflyer.jpg">
+          </div>
+          <section class="mat-typography" style="margin-top: 16px">
+            <p class="mat-display-1">This is the site content</p>
+            <p class="mat-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor laoreet nisi. Cras ut orci eget ligula commodo scelerisque vel vel nulla. Nunc consectetur urna non leo dapibus lobortis. Donec condimentum leo mi, at elementum nunc fringilla et. Sed ut risus vel velit consectetur aliquet in eu justo. Suspendisse interdum, elit sed vehicula rutrum, mi lectus luctus neque, nec consequat nibh tortor quis erat. Suspendisse erat justo, accumsan eget mi vel, varius vehicula enim. Sed ornare turpis purus, quis lobortis est varius non. Suspendisse potenti. Sed porta iaculis turpis vel ornare. Phasellus sed eros vitae nisl tincidunt dignissim.
+
+Duis rhoncus, nulla in condimentum porttitor, arcu dui scelerisque lorem, et vulputate urna quam in erat. Integer sit amet erat nec purus tristique accumsan quis dictum metus. Sed purus nunc, pharetra consequat enim eget, sollicitudin accumsan lectus. In finibus dictum eros ut tincidunt. Cras eget velit placerat sapien pulvinar sagittis. Proin eget urna vehicula, efficitur nisl et, iaculis massa. Sed facilisis faucibus hendrerit. Duis nec ligula dignissim, scelerisque neque quis, malesuada quam. Morbi sit amet arcu at sem interdum consequat. Proin at nulla nec augue interdum interdum. Etiam scelerisque turpis a urna vulputate, et laoreet ligula condimentum. Sed at pulvinar purus, vitae accumsan justo.
+
+Suspendisse sagittis odio vel sapien auctor aliquet. Curabitur vitae mattis tortor, cursus volutpat nisl. Ut vitae libero placerat, lobortis risus at, posuere est. Mauris malesuada ex non mattis luctus. Sed nisl ante, posuere ut facilisis nec, ornare id ex. Aenean dolor ipsum, ultrices sagittis lobortis eget, dictum non nibh. Donec pretium enim pharetra consequat mattis. Mauris condimentum ante ex, at semper nisi dapibus non. Vivamus vitae arcu tincidunt orci vestibulum lacinia eu in massa.
+
+Maecenas scelerisque commodo augue, non euismod elit pulvinar et. Integer pulvinar risus sit amet odio fringilla, eu tempus mauris posuere. Praesent feugiat placerat metus, ac aliquam mauris tincidunt eget. Nullam ornare sapien ac nunc viverra placerat. Vestibulum nec mi venenatis, consectetur dolor a, lobortis sapien. Donec volutpat lacus ut convallis placerat. Phasellus dignissim eget purus nec tincidunt. Nam vel massa sed purus tincidunt gravida sit amet nec turpis. Vestibulum dapibus, tortor sed ornare fringilla, turpis mauris venenatis erat, dignissim semper orci neque eu dolor. Vestibulum congue lectus id augue hendrerit mattis. Donec orci mi, interdum eget nisl eu, posuere tempor magna. Curabitur et augue odio. Pellentesque volutpat orci vel urna ullamcorper, at lobortis urna ullamcorper. Ut vitae quam quis libero cursus ultricies. Vivamus congue mollis sapien at bibendum.
+
+Donec viverra scelerisque lorem eget commodo. Praesent venenatis nisl lectus, vitae hendrerit magna viverra nec. Pellentesque vestibulum ut urna id varius. Suspendisse scelerisque nulla at laoreet gravida. Nullam id ligula ac sem laoreet maximus. Donec tincidunt nulla sit amet nunc pretium, a luctus dolor condimentum. Cras orci justo, commodo non faucibus ac, porta ut tortor. Aliquam erat volutpat. </p>
+          </section>
+          <div fxLayout="row" fxLayoutGap="16px" style="margin-bottom: 64px">
+              <mat-card fxFlex="50" style="height: 160px">
+                Cards are good for content that is related to each other
+                <mat-card-actions>
+                    <button mat-raised-button color="primary">SOMETHING</button>
+                </mat-card-actions>
+              </mat-card>
+              <mat-card fxFlex="50" style="height: 160px; overflow: hidden;">
+                  <img mat-card-image src="assets/rocket.jpg" alt="Photo of a Shiba Inu">
+              </mat-card>
+              <mat-card fxFlex="50" style="height: 160px">
+                  Cards are good for content that is related to each other
+                </mat-card>
+                <mat-card fxFlex="50" style="height: 160px; overflow: hidden;">
+                    <img mat-card-image src="assets/land.jpg" alt="Photo of a Shiba Inu">
+                </mat-card>
+          </div>
+        </div>
+
+        <footer class="mat-typography center footer">
+          <div class="footer-border"></div>
+          <div class="footer-legal">
+              <div class="block-inner-wrapper block-inner clearfix">
+                  <div class="lasp-logo"></div>
+                  <p>© Regents of the University of Colorado<br><a href="https://www.colorado.edu/contact-us">Contact Us</a>&nbsp;•&nbsp;<a href="https://www.colorado.edu/policies/privacy-statement">Privacy</a>&nbsp;•&nbsp;<a href="https://www.colorado.edu/about/legal-trademarks">Legal &amp; Trademarks</a>&nbsp;<br><a href="https://www.colorado.edu/accessibility">Accessibility</a>&nbsp;•&nbsp;<a href="https://www.colorado.edu/about/your-right-know">Student Consumer Information</a>&nbsp;•&nbsp;<a href="https://www.colorado.edu/policies">Policies</a>&nbsp;• <a href="https://www.colorado.edu/jobs">CU Boulder Jobs</a></p>
+              </div>
+          </div>
+          <div class="footer-links">
+            <div class="social-links">
+              <a href="#" class="fa fa-facebook mat-elevation-z1"></a>
+              <a href="#" class="fa fa-twitter mat-elevation-z1"></a>
+              <a href="#" class="fa fa-youtube mat-elevation-z1"></a>
+              <a href="#" class="fa fa-linkedin mat-elevation-z1"></a>
+            </div>
+            <div class="footer-links-section"></div>
+            <div class="footer-links-section"></div>
+          </div>
+        </footer>
+    </mat-sidenav-content>
+</mat-sidenav-container>
